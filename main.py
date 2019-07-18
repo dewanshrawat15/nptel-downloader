@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import os
 from os import system, name
 import urllib.parse as urlparse
-
+import sys
 def clear():
 	if name == 'nt':
 		_ = system('cls')
@@ -13,13 +13,31 @@ def clear():
 
 class Downloader:
 
-	def download(self, link, filename):
-		r = requests.get(link, stream = True)
-		with open(filename, 'wb') as f:
-			for chunk in r.iter_content(chunk_size = 1024*1024):
-				if chunk:
-					f.write(chunk)
-		print(filename)
+	def progress_bar(self, downloaded, file_size):
+		percent = (int(downloaded)/int(file_size)) * 100
+		percent = int((round(percent, 2)))
+		output = "\r %s%% downloaded" % percent
+		sys.stdout.write(output)
+		sys.stdout.flush()
+
+	def download(self, link, filename, format):
+		response = requests.get(link, stream = True)
+		total_length = response.headers.get('content-length')
+		file_size = int(response.headers['content-length'])
+		downloaded = 0
+		downloaded_file_name = filename + "." + format
+		if os.path.isfile(downloaded_file_name):
+			file_size_local = os.stat(downloaded_file_name).st_size
+			if file_size_local == file_size:
+				print(""+ downloaded_file_name +" => File already exists")
+		else:
+			print("Downloading")
+			with open(downloaded_file_name, 'wb') as f:
+				for chunk in response.iter_content(chunk_size = 1024*1024):
+					downloaded = downloaded + len(chunk)
+					self.progress_bar(downloaded, total_length)
+					if chunk:
+						f.write(chunk)
 
 	def scrape(self, url):
 		src = urlopen(url)
@@ -43,7 +61,7 @@ class Downloader:
 		for i in range(len(req)):
 			print("File Name => " + names[i])
 			print("Link => " + req[i])
-			self.download(req[i], names[i])
+			self.download(req[i], names[i], x)
 
 clear()
 x = input("Enter URL address of download page: ")
