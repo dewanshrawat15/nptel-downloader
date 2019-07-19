@@ -13,14 +13,7 @@ def clear():
 		_ = system("clear")
 
 class Downloader:
-
-	# def progress_bar(self, downloaded, file_size):
-	# 	percent = (int(downloaded)/int(file_size)) * 100
-	# 	percent = int((round(percent, 2)))
-	# 	output = "\r %s%% downloaded" % percent
-	# 	sys.stdout.write(output)
-	# 	sys.stdout.flush()
-
+	
 	def download(self, link, filename, format):
 		response = requests.get(link, stream = True)
 		total_length = response.headers.get('content-length')
@@ -34,10 +27,7 @@ class Downloader:
 		else:
 			print("Downloading")
 			with open(downloaded_file_name, 'wb') as f:
-				# for chunk in response.iter_content(chunk_size = 1024*1024):
-				for data in tqdm(iterable=response.iter_content(chunk_size = 1024*1024), total = file_size / 1024*1024, unit = 'KB'):
-					# downloaded = downloaded + len(chunk)
-					# self.progress_bar(downloaded, total_length)
+				for data in tqdm(iterable=response.iter_content(chunk_size = 1024), total = file_size / 1024, unit = 'KB'):
 					if data:
 						f.write(data)
 
