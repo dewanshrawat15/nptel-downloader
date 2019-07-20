@@ -1,4 +1,4 @@
-import sentry_sdk
+# import sentry_sdk
 from tqdm import tqdm
 import requests
 from urllib.request import urlopen, urljoin
