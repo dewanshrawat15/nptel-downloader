@@ -1,4 +1,6 @@
 # NPTEL Course Downloader
+[![Build Status](https://travis-ci.org/dewanshrawat15/nptel-downloader.svg?branch=CI-tests)](https://travis-ci.org/dewanshrawat15/nptel-downloader)
+
 The ```script.py``` file once triggered automatically starts downloading the videos from the course page which contains those lecture videos.
 
 # Requirement
