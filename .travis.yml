@@ -1,2 +1,3 @@
 language: python
-key: https://nptel.ac.in/courses/nptel_download.php?subjectid=106106145
+script:
+  - python main.py < "https://nptel.ac.in/courses/nptel_download.php?subjectid=106106145"
