@@ -8,8 +8,6 @@ from os import system, name
 import urllib.parse as urlparse
 import sys
 
-sentry_sdk.init("https://c94d1e7ad13e4846a9db1b7c8b4cc475@sentry.io/1509185")
-
 def clear():
     if name == 'nt':
         _ = system('cls')
@@ -62,8 +60,8 @@ class Downloader:
         for i in range(len(req)):
             self.download(req[i], names[i], x)
 
-# clear()
-# x = input("Enter URL address of download page: ")
+clear()
+x = input("Enter URL address of download page: ")
 # Course to be downloaded https://nptel.ac.in/courses/nptel_download.php?subjectid=106102064
-# download = Downloader()
-# download.scrape(x)
+download = Downloader()
+download.scrape(x)
