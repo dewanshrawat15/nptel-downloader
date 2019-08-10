@@ -73,6 +73,9 @@ class Downloader:
                 downloadPageURL = urljoin(course_url, i.get("href"))
                 print(downloadPageURL)
                 break
+            else:
+                print("Links not found")
+                return 1
         self.scrape(downloadPageURL, vid_format)
 
 def start():
