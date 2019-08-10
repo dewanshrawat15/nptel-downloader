@@ -1,4 +1,3 @@
-# import sentry_sdk
 from tqdm import tqdm
 import requests
 from urllib.request import urlopen, urljoin
@@ -70,8 +69,9 @@ class Downloader:
         links = codebase.findAll("a")
         for i in links:
             urlText = i.getText()
-            if urlText == "Download Videos & Transcripts":
+            if "Download Videos & Transcripts" in urlText:
                 downloadPageURL = urljoin(course_url, i.get("href"))
+                print(downloadPageURL)
                 break
         self.scrape(downloadPageURL, vid_format)
 
@@ -79,7 +79,7 @@ def start():
     clear()
     parser = argparse.ArgumentParser(description='NPTEL Downloader. Download the videos of your favorite course on NPTEL. Just paste the web address of the course page, and start downloading those videos. ')
     parser.add_argument("-u", "--url", help="Enter the course page url")
-    parser.add_argument("-f", "--format", help="Enter the format in which the videos have to be downloaded")
+    parser.add_argument("-f", "--format", help="Enter the format in which the videos have to be downloaded. Broadly supported formats are FLV, 3GP and MP4.")
     # parser.add_argument("-p", "--path", help="Enter the path where the videos have to be downloaded")g
     args = parser.parse_args()
     if not args.url:
