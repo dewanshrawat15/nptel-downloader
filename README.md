@@ -1,7 +1,7 @@
 # NPTEL Course Downloader [Deprecated]
 [![Build Status](https://travis-ci.org/dewanshrawat15/nptel-downloader.svg?branch=master)](https://travis-ci.org/dewanshrawat15/nptel-downloader)
 
-The ```script.py``` file once triggered automatically starts downloading the videos from the course page which contains those lecture videos.
+The ```script.py``` file once triggered automatically starts downloading the videos from the course page which contains those lecture videos. The NPTEL course page has been redesigned a bit. I have to make some changes to the codebase to increase the support. I might work on it in the future, but not right now. I'm open to collaborations.
 
 ## Requirement
 Any system with python 3 (preferably 3.6) and terminal.
