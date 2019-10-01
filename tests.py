@@ -10,7 +10,6 @@ class Downloader:
         y = codebase.findAll("a")
         req = []
         names = []
-        print(y)
         flag = -1
         for i in y:
             temp = i.get("href")
