@@ -14,14 +14,12 @@ If you have to just download videos or basically use the script to download vide
 
 ## Description
 nptel-downloader is a command-line program to download videos from the nptel course page. It requires the Python interpreter, 3.6+, and it is not platform specific. It should work on your Unix box, on Windows or on macOS. It is released to the public domain, which means you can modify it, redistribute it or use it however you like.
-```python main.py [-h] [-u URL] [-f FORMAT]```
+```python main.py [-h] [-u URL]```
 
 ## Options
 ```
 -h, --help                        Print this help message box and exit
 -u, --url                         Enter the nptel course page url
--f --format                       Enter the format in which the videos have to be downloaded.
-                                  Supported formats are MP4, 3GP, FLV
 ```
 ## Known Issue
 None as of now. Currently, I'm trying to add a Resume Downloads Feature. Feel free to open an issue if any!
