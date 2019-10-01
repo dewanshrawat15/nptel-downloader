@@ -50,6 +50,9 @@ class Downloader:
                 name = basename(a)
                 names.append(name)
                 req.append(a)
+            else:
+                print("Links not found")
+                return 1
 
         for i in range(len(req)):
             self.download(req[i], names[i])
