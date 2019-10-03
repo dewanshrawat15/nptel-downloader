@@ -5,8 +5,6 @@ from urllib.request import urlopen, urljoin
 from bs4 import BeautifulSoup
 import os
 from os import system, name
-import urllib.parse as urlparse
-import sys
 import argparse
 
 def clear():
@@ -20,9 +18,7 @@ class Downloader:
 
     def download(self, link, filename):
         response = requests.get(link, stream=True)
-        total_length = response.headers.get('content-length')
         file_size = int(response.headers['content-length'])
-        downloaded = 0
         downloaded_file_name = filename
 
         if os.path.isfile(downloaded_file_name):
