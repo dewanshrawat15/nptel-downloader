@@ -3,19 +3,10 @@ from tqdm import tqdm
 import requests
 from urllib.request import urlopen, urljoin
 from bs4 import BeautifulSoup
-import os
-from os import system, name
 import argparse
 
-def clear():
-    if name == 'nt':
-        os.system('cls')
-    else:
-        os.system("clear")
-
-
 class Downloader:
-
+    @classmethod
     def download(self, link, filename):
         response = requests.get(link, stream=True)
         file_size = int(response.headers['content-length'])
@@ -54,7 +45,6 @@ class Downloader:
             self.download(req[i], names[i])
 
 def start():
-    clear()
     parser = argparse.ArgumentParser(description='NPTEL Downloader. Download the videos of your favorite course on NPTEL. Just paste the web address of the course page, and start downloading those videos. ')
     parser.add_argument("-u", "--url", help="Enter the course page url")
     args = parser.parse_args()
