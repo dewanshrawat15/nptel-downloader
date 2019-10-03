@@ -1,15 +1,11 @@
-from os.path import basename
-from urllib.request import urlopen, urljoin
+from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import urllib.parse as urlparse
 class Downloader:
 
     def scrape(self, url):
         src = urlopen(url)
         codebase = BeautifulSoup(src, 'html.parser')
         y = codebase.findAll("a")
-        req = []
-        names = []
         flag = -1
         for i in y:
             temp = i.get("href")
