@@ -9,9 +9,9 @@ import argparse
 
 def clear():
     if name == 'nt':
-        _ = system('cls')
+        os.system('cls')
     else:
-        _ = system("clear")
+        os.system("clear")
 
 
 class Downloader:
