@@ -1,5 +1,6 @@
 # NPTEL Course Downloader
-[![Build Status](https://travis-ci.org/dewanshrawat15/nptel-downloader.svg?branch=master)](https://travis-ci.org/dewanshrawat15/nptel-downloader)
+[![Build Status](https://travis-ci.org/dewanshrawat15/nptel-downloader.svg?branch=master)](https://travis-ci.org/dewanshrawat15/nptel-downloader) 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4b57b8ac12ce4ababf4ceadd46e1f1af)](https://www.codacy.com/manual/dewanshrawat15/nptel-downloader?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dewanshrawat15/nptel-downloader&amp;utm_campaign=Badge_Grade)
 
 The ```script.py``` file once triggered automatically starts downloading the videos from the course page which contains those lecture videos.
 
