@@ -17,13 +17,13 @@ class Downloader:
             file_size_local = os.stat(downloaded_file_name).st_size
             if file_size_local == file_size:
                 print("" + downloaded_file_name + " => File already exists")
-        else:
-            print("Downloading "+downloaded_file_name)
-            with open(downloaded_file_name, 'wb') as f:
-                for data in tqdm(iterable=response.iter_content(chunk_size=1024), total=file_size / 1024, unit='KB'):
-                    if data:
-                        f.write(data)
-            print(downloaded_file_name+" downloaded")
+            else:
+                print("Downloading "+downloaded_file_name)
+                with open(downloaded_file_name, 'wb') as f:
+                    for data in tqdm(iterable=response.iter_content(chunk_size=1024), total=file_size / 1024, unit='KB'):
+                        if data:
+                            f.write(data)
+                print(downloaded_file_name+" downloaded")
 
     def scrape(self, url):
         src = urlopen(url)
