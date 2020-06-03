@@ -4,5 +4,5 @@ chardet==3.0.4
 requests==2.23.0
 idna==2.9
 soupsieve==2.0
-tqdm==4.46.0
+tqdm==4.46.1
 urllib3==1.25.9
