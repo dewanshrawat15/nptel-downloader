@@ -63,6 +63,8 @@ def start():
         download.scrape(args.url, args.folder)
     elif args.folder and x:
         download.scrape(x, args.folder)
+    elif args.url:
+        download.scrape(args.url, "Videos")
     else:
         download.scrape(x, "Videos")
 
