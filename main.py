@@ -50,7 +50,7 @@ class Downloader:
             else:
                 print("Please enter the offset between 0 and " + str(len(req)))
         else:
-            print("Please enter a valid Number!\nExiting...")    
+            print("Please enter a valid Number!\nExiting...")
             exit()
         if start != "0":
             print("Skipping first " + start + " videos...")
