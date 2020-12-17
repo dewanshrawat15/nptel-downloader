@@ -26,7 +26,7 @@ class Downloader:
                         f.write(data)
             print(downloaded_file_name+" downloaded")
 
-    def scrape(self, url, folder):
+    def scrape(self, url, folder, start):
 
         if not os.path.exists(folder):
             os.makedirs(folder)
@@ -43,7 +43,17 @@ class Downloader:
                 name = basename(a)
                 names.append(name)
                 req.append(a)
-
+        if start.isnumeric():
+            if int(start) < len(req) and int(start) >= 0:
+                req = req[int(start):]
+                names = names[int(start):]
+            else:
+                print("Please enter the offset between 0 and " + str(len(req)))
+        else:
+            print("Please enter a valid Number!\nExiting...")
+            exit()
+        if start != "0":
+            print("Skipping first " + start + " videos...")
         if folder:
             for i in range(len(req)):
                 self.download(req[i], names[i], folder)
@@ -55,16 +65,27 @@ def start():
     parser = argparse.ArgumentParser(description='NPTEL Downloader. Download the videos of your favorite course on NPTEL. Just paste the web address of the course page, and start downloading those videos. ')
     parser.add_argument("-u", "--url", help="Enter the course page url")
     parser.add_argument("-f", "--folder", help="Enter the folder name where the videos have to be downloaded")
+    parser.add_argument("-s", "--start", help="Enter the number of videos to be skipped from start")
     args = parser.parse_args()
     if not args.url:
         x = input("Enter URL address of download page: ")
     download = Downloader()
-    if args.url and args.folder:
-        download.scrape(args.url, args.folder)
-    elif args.folder and x:
-        download.scrape(x, args.folder)
+    if args.url and args.folder and args.start:
+        download.scrape(args.url, args.folder, args.start)
+    elif args.url and args.folder:
+    	download.scrape(args.url, args.folder, 0)
+    elif args.url and args.start:
+        download.scrape(args.url, "Videos", args.start)
+    elif args.start and args.folder:
+    	download.scrape(x, args.folder, args.start)
+    elif args.start:
+    	download.scrape(x, "Videos", args.start)
+    elif args.folder:
+        download.scrape(x, args.folder, 0)
+    elif args.url:
+    	download.scrape(args.url, "Videos", 0)
     else:
-        download.scrape(x, "Videos")
+        download.scrape(x, "Videos", 0)
 
 if __name__ == "__main__":
     start()
