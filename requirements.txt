@@ -1,5 +1,5 @@
 beautifulsoup4==4.11.0
-certifi==2021.10.8
+certifi==2022.5.18.1
 chardet==4.0.0
 requests==2.27.1
 tqdm==4.64.0
