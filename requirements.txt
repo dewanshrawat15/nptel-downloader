@@ -1,6 +1,6 @@
 beautifulsoup4==4.11.1
 certifi==2022.6.15
-chardet==5.0.0
+chardet==5.1.0
 requests==2.28.1
 tqdm==4.64.1
 idna==3.3
